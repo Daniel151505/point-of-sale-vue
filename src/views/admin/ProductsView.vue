@@ -2,6 +2,6 @@
 
 <template>
   <div>
-    <h1>From Admin</h1>
+    <h1>From Products</h1>
   </div>
 </template>
