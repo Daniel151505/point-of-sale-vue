@@ -11,7 +11,7 @@ import LogoVue from "./Logo.vue";
       <LogoVue />
     </div>
     <nav>
-      <Link to="admin">Manage</Link>
+      <Link to="shop">Go to Store</Link>
     </nav>
   </header>
 </template>
