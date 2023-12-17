@@ -8,5 +8,8 @@ import Link from "@/components/Link.vue";
 
     <h1 class="text-4xl font-black my-10">New Product</h1>
 
+    <FormKit type="form">
+      <FormKit type="text" />
+    </FormKit>
   </div>
 </template>
