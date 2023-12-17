@@ -1,7 +1,11 @@
-<script setup></script>
+<script setup>
+import LinkVue from "@/components/Link.vue";
+</script>
 
 <template>
   <div>
-    <h1>From Products</h1>
+    <LinkVue to="new-product">New Product</LinkVue>
+
+    <h1 class="text-4xl font-black my-10">Products</h1>
   </div>
 </template>
