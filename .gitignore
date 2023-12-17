@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # package lock
 package-lock.json
+
+#env
+.env.local
