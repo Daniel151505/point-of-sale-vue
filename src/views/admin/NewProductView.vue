@@ -1,8 +1,8 @@
 <script setup>
 import Link from "@/components/Link.vue";
-import useImage from '../../composables/useImage'
+import useImage from "../../composables/useImage";
 
-const { onFileChange } = useImage();
+const { url, onFileChange, isImageUploaded } = useImage();
 </script>
 
 <template>
@@ -13,7 +13,11 @@ const { onFileChange } = useImage();
 
     <div class="flex justify-center bg-white shadow">
       <div class="mt-10 p-10 w-full 2xl:w-2/4">
-        <FormKit type="form" submit-label="Add Product">
+        <FormKit
+          type="form"
+          submit-label="Add Product"
+          incomplete-message="Sorry, could not send, check the error messages"
+        >
           <FormKit
             type="text"
             label="Name"
@@ -32,6 +36,12 @@ const { onFileChange } = useImage();
             accept=".jpg"
             @change="onFileChange"
           />
+
+          <div v-if="isImageUploaded">
+            <p class="font-black">Product Image:</p>
+
+            <img :src="url" aly="New product image" class="w-32" />
+          </div>
 
           <FormKit
             type="select"
