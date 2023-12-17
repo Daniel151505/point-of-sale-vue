@@ -66,7 +66,7 @@ const submitHandler = (data) => {};
             name="category"
             validation="required"
             :validation-messages="{ required: 'Category is required' }"
-            :options="[1, 2, 3]"
+            :options="products.categoryOptions"
             v-model.number="formData.category"
           />
 
