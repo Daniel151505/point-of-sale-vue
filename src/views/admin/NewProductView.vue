@@ -4,7 +4,7 @@ import Link from "@/components/Link.vue";
 
 <template>
   <div>
-    <Link to="products"> Go Back </Link>
+    <Link to="products">Go Back</Link>
 
     <h1 class="text-4xl font-black my-10">New Product</h1>
 
