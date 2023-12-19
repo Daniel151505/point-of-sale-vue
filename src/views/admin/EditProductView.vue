@@ -7,6 +7,13 @@ import Link from "@/components/Link.vue";
 import { useProductsStore } from "@/stores/products";
 import useImage from "@/composables/useImage";
 
+// Querie firestore
+const router = useRouter();
+const route = useRoute();
+const db = useFirestore();
+const docRef = doc(db, "products", route.params.id);
+const product = useDocument(docRef);
+
 const { onFileChange, url, isImageUploaded } = useImage();
 const products = useProductsStore();
 
@@ -16,6 +23,13 @@ const formData = reactive({
   price: "",
   availability: "",
   image: "",
+});
+
+watch(product, (product) => {
+  if (!product) {
+    router.push({ name: "products" });
+  }
+  Object.assign(formData, product);
 });
 </script>
 
