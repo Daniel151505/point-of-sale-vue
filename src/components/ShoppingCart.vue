@@ -1,6 +1,8 @@
 <script setup>
 import ShoppingCartItem from "./ShoppingCartItem.vue";
+import AmountVue from "./Amount.vue";
 import { useCartStore } from "@/stores/cart";
+import { formatCurrency } from "@/helpers";
 
 const cart = useCartStore();
 </script>
@@ -19,5 +21,23 @@ const cart = useCartStore();
         :item="item"
       />
     </ul>
+    <dl
+      class="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500"
+    >
+      <AmountVue>
+        <template #label> Subtotal: </template>
+        {{ formatCurrency(300) }}
+      </AmountVue>
+
+      <AmountVue>
+        <template #label> Taxes: </template>
+        {{ formatCurrency(300) }}
+      </AmountVue>
+
+      <AmountVue>
+        <template #label> Total to pay: </template>
+        {{ formatCurrency(300) }}
+      </AmountVue>
+    </dl>
   </div>
 </template>
