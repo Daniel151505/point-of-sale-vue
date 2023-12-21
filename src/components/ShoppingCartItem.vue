@@ -23,7 +23,10 @@ defineProps({
       <h3 class="text-gray-900">{{ item.name }}</h3>
       <p>{{ formatCurrency(item.price) }}</p>
 
-      <select class="w-32 text-center p-2 rounded-lg bg-white">
+      <select
+        class="w-32 text-center p-2 rounded-lg bg-white"
+        @change="cart.updateQuantity(item.id, +$event.target.value)"
+      >
         <option v-for="n in cart.checkProductAvailalbility(item)" :value="n">
           {{ n }}
         </option>
