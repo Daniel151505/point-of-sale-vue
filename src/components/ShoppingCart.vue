@@ -26,7 +26,7 @@ const cart = useCartStore();
     >
       <AmountVue>
         <template #label> Subtotal: </template>
-        {{ formatCurrency(300) }}
+        {{ formatCurrency(cart.subtotal) }}
       </AmountVue>
 
       <AmountVue>
