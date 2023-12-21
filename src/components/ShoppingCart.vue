@@ -36,7 +36,7 @@ const cart = useCartStore();
 
       <AmountVue>
         <template #label> Total to pay: </template>
-        {{ formatCurrency(300) }}
+        {{ formatCurrency(cart.total) }}
       </AmountVue>
     </dl>
   </div>
