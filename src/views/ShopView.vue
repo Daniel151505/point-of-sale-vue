@@ -3,6 +3,7 @@ import { storeToRefs } from "pinia";
 import { useProductsStore } from "@/stores/products";
 import MainNav from "../components/MainNav.vue";
 import ProductCardVue from "../components/ProductCard.vue";
+import ShoppingCartVue from "@/components/ShoppingCart.vue";
 
 const products = useProductsStore();
 const { filteredProducts, noResults } = storeToRefs(products);
@@ -43,8 +44,8 @@ const { filteredProducts, noResults } = storeToRefs(products);
         />
       </div>
     </div>
-    <aside
-      class="lg:w-1/3 lg:screen lg:overflow-y-scroll pt-10 pb-32 px-10"
-    ></aside>
+    <aside class="lg:w-1/3 lg:screen lg:overflow-y-scroll py-24 px-10">
+      <ShoppingCartVue />
+    </aside>
   </main>
 </template>
