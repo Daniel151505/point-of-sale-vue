@@ -31,7 +31,7 @@ const cart = useCartStore();
 
       <AmountVue>
         <template #label> Taxes: </template>
-        {{ formatCurrency(300) }}
+        {{ formatCurrency(cart.taxes) }}
       </AmountVue>
 
       <AmountVue>

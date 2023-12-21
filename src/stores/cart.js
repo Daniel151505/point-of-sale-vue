@@ -4,8 +4,10 @@ import { defineStore } from "pinia";
 export const useCartStore = defineStore("cart", () => {
   const items = ref([]);
   const subtotal = ref(0);
+  const taxes = ref(0);
 
   const MAX_PRODUCT = 5;
+  const TAX_RATE = 0.1;
 
   watch(
     items,
@@ -14,6 +16,7 @@ export const useCartStore = defineStore("cart", () => {
         (total, item) => total + item.quantity * item.price,
         0
       );
+      taxes.value = subtotal.value * TAX_RATE;
     },
     {
       deep: true,
@@ -43,6 +46,7 @@ export const useCartStore = defineStore("cart", () => {
     isEmpty,
     items,
     subtotal,
+    taxes,
     checkProductAvailalbility,
   };
 });
