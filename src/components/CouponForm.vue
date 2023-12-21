@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useCouponStore } from "@/stores/coupons";
+
+const store = useCouponStore();
+</script>
 
 <template>
   <p class="mt-5 py-5 font-bold border-t border-gray-200">
@@ -10,6 +14,7 @@
       type="text"
       placeholder="Enter a coupon"
       class="p-2 bg-white border-gray-300 w-full"
+      v-model="store.couponInput"
     />
     <button type="button" class="p-3 bg-green-400 font-bold">Redeem</button>
   </div>
