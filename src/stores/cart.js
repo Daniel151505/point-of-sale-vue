@@ -7,7 +7,7 @@ export const useCartStore = defineStore("cart", () => {
   const taxes = ref(0);
   const total = ref(0);
 
-  const MAX_PRODUCT = 5;
+  const MAX_PRODUCTS = 5;
   const TAX_RATE = 0.1;
 
   watchEffect(() => {
@@ -23,13 +23,15 @@ export const useCartStore = defineStore("cart", () => {
     const index = isItemInCart(item.id);
 
     if (index >= 0) {
+      if (isProductAvailable(item, index)) {
+        alert("You have reached the limit");
+        return;
+      }
       // Update quantity
       items.value[index].quantity++;
     } else {
       items.value.push({ ...item, quantity: 1, id: item.id });
     }
-
-    items.value.push({ ...item, quantity: 1, id: item.id });
   }
 
   function updateQuantity(id, quantity) {
@@ -40,11 +42,18 @@ export const useCartStore = defineStore("cart", () => {
 
   const isItemInCart = (id) => items.value.findIndex((item) => item.id === id);
 
+  const isProductAvailable = (item, index) => {
+    return (
+      items.value[index].quantity >= item.availability ||
+      items.value[index].quantity >= MAX_PRODUCTS
+    );
+  };
+
   const isEmpty = computed(() => items.value.length === 0);
 
   const checkProductAvailalbility = computed(() => {
     return (product) =>
-      product.availability < 5 ? product.availability : MAX_PRODUCT;
+      product.availability < 5 ? product.availability : MAX_PRODUCTS;
   });
 
   return {
