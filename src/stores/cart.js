@@ -20,6 +20,15 @@ export const useCartStore = defineStore("cart", () => {
   });
 
   function addItem(item) {
+    const index = isItemInCart(item.id);
+
+    if (index >= 0) {
+      // Update quantity
+      items.value[index].quantity++;
+    } else {
+      items.value.push({ ...item, quantity: 1, id: item.id });
+    }
+
     items.value.push({ ...item, quantity: 1, id: item.id });
   }
 
@@ -28,6 +37,8 @@ export const useCartStore = defineStore("cart", () => {
       item.id === id ? { ...item, quantity } : item
     );
   }
+
+  const isItemInCart = (id) => items.value.findIndex((item) => item.id === id);
 
   const isEmpty = computed(() => items.value.length === 0);
 
