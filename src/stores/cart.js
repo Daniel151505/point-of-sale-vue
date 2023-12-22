@@ -1,4 +1,4 @@
-import { ref, computed, watchEffect } from "vue";
+import { ref, computed, watchEffect, computed } from "vue";
 import { defineStore } from "pinia";
 import { useCouponStore } from "./coupons";
 

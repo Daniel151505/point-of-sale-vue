@@ -37,7 +37,7 @@ const coupon = useCouponStore();
         {{ formatCurrency(cart.taxes) }}
       </AmountVue>
 
-      <AmountVue>
+      <AmountVue v-if="coupon.isValidCoupon">
         <template #label> Discount: </template>
         {{ formatCurrency(coupon.discount) }}
       </AmountVue>
