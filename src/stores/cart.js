@@ -1,4 +1,4 @@
-import { ref, computed, watchEffect, computed } from "vue";
+import { ref, computed, watchEffect } from "vue";
 import { defineStore } from "pinia";
 import { collection, addDoc, runTransaction, doc } from "firebase/firestore";
 import { useFirestore } from "vuefire";
@@ -7,7 +7,7 @@ import { getCurrentDate } from "@/helpers";
 
 export const useCartStore = defineStore("cart", () => {
   const coupon = useCouponStore();
-  const db = useFirestore;
+  const db = useFirestore();
   const items = ref([]);
   const subtotal = ref(0);
   const taxes = ref(0);
@@ -59,7 +59,7 @@ export const useCartStore = defineStore("cart", () => {
           const { availability, category, ...data } = item;
           return data;
         }),
-        subtotal: subtotal,
+        subtotal: subtotal.value,
         taxes: taxes.value,
         discount: coupon.discount,
         total: total.value,
@@ -80,7 +80,9 @@ export const useCartStore = defineStore("cart", () => {
       // Reset the state
       $reset();
       coupon.$reset();
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function $reset() {

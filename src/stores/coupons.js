@@ -1,4 +1,4 @@
-import { ref, watch } from "firebase/database";
+import { ref, watch, computed } from "vue";
 import { defineStore } from "pinia";
 import { useCartStore } from "./cart";
 
@@ -38,13 +38,13 @@ export const useCouponStore = defineStore("coupon", () => {
   }
 
   function $reset() {
-    couponInput = "";
-    couponValidationMessage = "";
-    discountPercentaje = 0;
-    discount = 0;
+    couponInput.value = "";
+    couponValidationMessage.value = "";
+    discountPercentaje.value = 0;
+    discount.value = 0;
   }
 
-  const isValidCoupon = computed(() => discountPercentage.value > 0);
+  const isValidCoupon = computed(() => discountPercentaje.value > 0);
 
   return {
     couponInput,
