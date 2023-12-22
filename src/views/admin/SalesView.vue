@@ -1,5 +1,13 @@
 <script setup>
+import { ref } from "vue";
 import VueTailwindDatePicker from "vue-tailwind-datepicker";
+
+const date = red("");
+
+const formatter = ref({
+  date: "DD/MM/YYYY",
+  month: "MMMM",
+});
 </script>
 
 <template>
@@ -7,8 +15,8 @@ import VueTailwindDatePicker from "vue-tailwind-datepicker";
     <h1 class="text-4xl font-black my-10">Sales Summary</h1>
 
     <div class="md:flex md:items-start gap-5">
-      <div class="md:w-1/2 lg:w-1/3 bg-white flex justify-center">
-        <VueTailwindDatePicker />
+      <div class="md:w-1/2 lg:w-1/3 bg-white flex justify-center p-5">
+        <VueTailwindDatePicker as-single no-input v-model="date" />
       </div>
 
       <div
