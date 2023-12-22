@@ -14,7 +14,7 @@ const { filteredProducts, noResults } = storeToRefs(products);
   <main class="pt-10 lg:flex lg:h-screen lg:overflow-y-hidden">
     <div class="lg:w-2/3 lg:screen lg:overflow-y-scroll px-10">
       <h2 class="text-lg font-extrabold">Filters:</h2>
-      <div class="flex gap-5 text-dark text-center">
+      <div class="flex flex-col md:flex-row md:gap-5 text-dark text-center">
         <div
           class="flex items-center gap-2"
           v-for="category in products.categories"
@@ -24,14 +24,14 @@ const { filteredProducts, noResults } = storeToRefs(products);
             type="radio"
             name="category"
             :value="category.id"
-            class="h-4 w-4 rounded border-gray-400 text-indigo-600 focus:ring-indigo-500"
+            class="h-4 w-4 md:h-6 md:w-6 rounded border-gray-400 text-indigo-600 focus:ring-indigo-500"
             :checked="products.selectedCategory === category.id"
             @change="products.selectedCategory = +$event.target.value"
           />
           <label class="text-dark-100">{{ category.name }}</label>
         </div>
       </div>
-      <p v-if="noResults" class="text-center text-4xl">There are no products</p>
+      <p v-if="noResults" class="text-center text-4xl pt-10">There are no products</p>
 
       <div
         v-else

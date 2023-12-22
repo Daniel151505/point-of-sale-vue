@@ -12,19 +12,19 @@ defineProps({
 </script>
 
 <template>
-  <li class="flex space-x-6 py-6">
+  <li class="flex flex-col md:flex-row md:space-x-6 py-6">
     <img
       :src="item.image"
-      :alt="'Imagen de' + item.name"
-      class="h-24 w-24 flex-none rounded-md"
+      :alt="'Imagen de ' + item.name"
+      class="h-24 w-full md:w-24 flex-none rounded-md mb-4 md:mb-0"
     />
 
-    <div class="flex-auto space-y-2">
+    <div class="flex-auto space-y-2 md:ml-4">
       <h3 class="text-gray-900">{{ item.name }}</h3>
       <p>{{ formatCurrency(item.price) }}</p>
 
       <select
-        class="w-32 text-center p-2 rounded-lg bg-white"
+        class="w-full md:w-32 text-center p-2 rounded-lg bg-white"
         @change="cart.updateQuantity(item.id, +$event.target.value)"
         :value="item.quantity"
       >
@@ -34,7 +34,7 @@ defineProps({
       </select>
     </div>
 
-    <div>
+    <div class="md:ml-auto pt-4 text-center">
       <button type="button" @click="cart.removeItem(item.id)">
         <svg
           xmlns="http://www.w3.org/2000/svg"

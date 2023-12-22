@@ -16,21 +16,31 @@ const isProductNotAvailable = computed(() => props.product.availability === 0);
 <template>
   <li
     :class="{ 'opacity-30': isProductNotAvailable }"
-    class="flex items-center space-x-6 border border-gray-200 p-6 bg-white shadow"
+    class="mx-3 flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6 border border-gray-200 p-4 md:p-6 bg-white shadow"
   >
-    <img :src="product.image" :alt="product.name" class="h-24 w-24" />
-    <div class="space-y-2 flex-auto">
-      <h3 class="text-gray-900">{{ product.name }}</h3>
-      <p class="font-extrabold">{{ formatCurrency(product.price) }}</p>
-      <p>{{ product.availability }} is available</p>
+    <img
+      :src="product.image"
+      :alt="product.name"
+      class="mx-auto h-24 w-24 mb-2 md:mb-0 md:h-32"
+    />
+
+    <div class="flex-auto md:space-y-2 text-center">
+      <h3 class="text-gray-900 text-lg md:text-xl">{{ product.name }}</h3>
+      <p class="font-extrabold text-lg md:text-xl">
+        {{ formatCurrency(product.price) }}
+      </p>
+      <p class="text-sm md:text-base">
+        {{ product.availability }} is available
+      </p>
     </div>
 
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-3 mt-2 md:mt-0 mx-auto text-center">
       <RouterLink
         :to="{
           name: 'edit-product',
           params: { id: product.id },
         }"
+        class="md:ml-4"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +59,11 @@ const isProductNotAvailable = computed(() => props.product.availability === 0);
         </svg>
       </RouterLink>
 
-      <button type="button" @click="products.deleteProduct(product.id)">
+      <button
+        type="button"
+        @click="products.deleteProduct(product.id)"
+        class="mx-auto"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

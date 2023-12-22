@@ -10,8 +10,9 @@ export const useCouponStore = defineStore("coupon", () => {
   const discount = ref(0);
 
   const VALID_COUPONS = [
-    { name: "1ODISCOUNT", discount: 0.1 },
-    { name: "2ODISCOUNT", discount: 0.2 },
+    { name: "10DISCOUNT", discount: 0.1 },
+    { name: "20DISCOUNT", discount: 0.2 },
+    { name: "30DISCOUNT", discount: 0.3 },
   ];
 
   watch(discountPercentaje, () => {

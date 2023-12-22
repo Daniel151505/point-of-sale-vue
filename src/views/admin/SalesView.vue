@@ -22,7 +22,7 @@ const formatter = ref({
         <VueTailwindDatePicker
           as-single
           no-input
-          v-model="date"
+          v-model="sales.date"
           :formatter="formatter"
         />
       </div>

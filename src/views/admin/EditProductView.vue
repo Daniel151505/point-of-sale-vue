@@ -43,7 +43,7 @@ const submitHandler = async (data) => {
 </script>
 
 <template>
-  <div class="mt-10">
+  <div>
     <Link to="products"> Go Back </Link>
     <h1 class="text-4xl my-10 font-extrabold">Edit Product</h1>
 
