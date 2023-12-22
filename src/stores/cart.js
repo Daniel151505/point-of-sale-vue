@@ -65,7 +65,18 @@ export const useCartStore = defineStore("cart", () => {
         total: total.value,
         date: getCurrentDate(),
       });
+
+      // Reset the state
+      $reset();
+      coupon.$reset();
     } catch (error) {}
+  }
+
+  function $reset() {
+    items.value = [];
+    subtotal.value = 0;
+    taxes.values = 0;
+    total.value = 0;
   }
 
   const isItemInCart = (id) => items.value.findIndex((item) => item.id === id);
