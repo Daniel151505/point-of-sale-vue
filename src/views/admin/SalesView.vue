@@ -35,13 +35,16 @@ const formatter = ref({
 
         <p v-else class="text-center text-lg">Select a date</p>
 
-        <div class="space-y-5">
+        <div v-if="sales.salesCollection.length" class="space-y-5">
           <SaleDetailsVue
             v-for="sale in sales.salesCollection"
             :key="sale.id"
             :sale="sale"
           />
         </div>
+        <p v-else-if="sales.noSales" class="text-lg text-center">
+          There are no sales on this day
+        </p>
       </div>
     </div>
   </div>
