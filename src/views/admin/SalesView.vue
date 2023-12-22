@@ -3,6 +3,7 @@ import { ref } from "vue";
 import VueTailwindDatePicker from "vue-tailwind-datepicker";
 import { useSalesStore } from "../../stores/sales";
 import SaleDetailsVue from "../../components/SaleDetails.vue";
+import { formatCurrency } from "@/helpers";
 
 const sales = useSalesStore();
 
@@ -36,6 +37,12 @@ const formatter = ref({
         <p v-else class="text-center text-lg">Select a date</p>
 
         <div v-if="sales.salesCollection.length" class="space-y-5">
+          <p class="text-right text-2xl">
+            Total of the day:
+            <span class="font-black">
+              {{ formatCurrency(sales.totalSalesOfDay) }}
+            </span>
+          </p>
           <SaleDetailsVue
             v-for="sale in sales.salesCollection"
             :key="sale.id"
