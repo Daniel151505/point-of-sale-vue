@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import VueTailwindDatePicker from "vue-tailwind-datepicker";
 import { useSalesStore } from "../../stores/sales";
+import SaleDetailsVue from "../../components/SaleDetails.vue";
 
 const sales = useSalesStore();
 
@@ -33,6 +34,14 @@ const formatter = ref({
         </p>
 
         <p v-else class="text-center text-lg">Select a date</p>
+
+        <div class="space-y-5">
+          <SaleDetailsVue
+            v-for="sale in sales.salesCollection"
+            :key="sale.id"
+            :sale="sale"
+          />
+        </div>
       </div>
     </div>
   </div>
