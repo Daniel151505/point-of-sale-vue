@@ -1,3 +1,6 @@
+# Link page
+https://point-of-sale-vue-phi.vercel.app/
+
 # point-of-sale-vue
 
 This template should help get you started developing with Vue 3 in Vite.
