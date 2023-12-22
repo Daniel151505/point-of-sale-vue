@@ -16,7 +16,7 @@ const toggleMobileMenu = () => {
       <LogoVue />
     </div>
     <nav class="hidden md:flex">
-      <Link to="admin" class="rounded bg-green-400 hover:bg-green-500 font-bold px-1 py-2 px-5 md:px-10">Manage</Link>
+      <Link to="sales" class="rounded bg-green-400 hover:bg-green-500 font-bold px-1 py-2 px-5 md:px-10">Manage</Link>
     </nav>
     <div class="md:hidden">
       <button @click="toggleMobileMenu" class="text-white">
@@ -28,7 +28,7 @@ const toggleMobileMenu = () => {
         <div v-if="isMobileMenuVisible" @click="toggleMobileMenu" class="fixed inset-0 bg-black opacity-50"></div>
       </transition>
       <div v-show="isMobileMenuVisible" class="text-center absolute w-full top-16 right-0 bg-gray-700 py-2 px-20 space-y-2">
-        <Link to="admin" class="rounded bg-green-400 hover:bg-green-500 font-bold px-2 py-1 block">Manage</Link>
+        <Link to="sales" class="rounded bg-green-400 hover:bg-green-500 font-bold px-2 py-1 block">Manage</Link>
       </div>
     </div>
   </header>
